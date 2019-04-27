@@ -23,7 +23,9 @@
     "azure-pipelines": "nyc mocha --async-only --reporter xunit -O output=test.xunit",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
-  "dependencies": {},
+  "dependencies": {
+    "resolve": "^1.10.1"
+  },
   "devDependencies": {
     "coveralls": "github:phated/node-coveralls#2.x",
     "eslint": "^2.13.1",
