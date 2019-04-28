@@ -166,6 +166,23 @@ describe('evented-require', function() {
     done();
   });
 
+  it('allows requireAll to be destructured', function(done) {
+    var ee = new EventedRequire(__dirname);
+
+    var spy = expect.createSpy();
+
+    var ra = ee.requireAll;
+
+    ee.on('success', spy);
+
+    ra(['./fixtures/foo.js']);
+
+    expect(spy.calls.length).toEqual(1);
+    expect(spy.calls[0].arguments).toEqual(['./fixtures/foo.js', 'foo']);
+
+    done();
+  });
+
   it('loads node_modules', function(done) {
     var ee = new EventedRequire(__dirname);
 

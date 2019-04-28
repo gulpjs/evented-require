@@ -13,6 +13,7 @@ function EventedRequire(basedir) {
 
   this._basedir = basedir;
 
+  // This allows the methods to be destructured from the instance and still work
   this.require = this.require.bind(this);
   this.requireAll = this.requireAll.bind(this);
 }
