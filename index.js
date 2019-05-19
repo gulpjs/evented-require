@@ -26,24 +26,33 @@ EventedRequire.prototype.require = function(moduleName) {
     opts.basedir = this._basedir;
   }
 
-  var result;
+  var result, exists, modulePath;
   this.emit('before', moduleName);
   try {
-    result = require(resolve.sync(moduleName, opts));
+    modulePath = resolve.sync(moduleName, opts);
+    if (require.cache[modulePath]) {
+      exists = true;
+    }
+    result = require(modulePath);
   } catch (e) {
     this.emit('failure', moduleName, e);
-    return;
+    return null;
   }
-  this.emit('success', moduleName, result);
+
+  if (exists) {
+    this.emit('exists', moduleName, modulePath);
+  } else {
+    this.emit('success', moduleName, result);
+  }
   return result;
 };
 
 EventedRequire.prototype.requireAll = function(moduleNames) {
-  moduleNames.filter(toUnique).forEach(this.require);
+  var result = {};
+  for (var i = 0, n = moduleNames.length; i < n; i++) {
+    result[moduleNames[i]] = this.require(moduleNames[i]);
+  }
+  return result;
 };
-
-function toUnique(elem, index, array) {
-  return array.indexOf(elem) === index;
-}
 
 module.exports = EventedRequire;
