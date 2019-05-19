@@ -122,12 +122,12 @@ describe('evented-require', function() {
     done();
   });
 
-  it('emits a `already` event when the module was already loaded', function(done) {
+  it('emits a `exists` event when the module was already required', function(done) {
     var ee = new EventedRequire(__dirname);
 
     var spy = expect.createSpy();
 
-    ee.on('already', spy);
+    ee.on('exists', spy);
 
     var result = ee.require('./fixtures/foo.js');
 
@@ -273,7 +273,7 @@ describe('evented-require', function() {
     var spyAlready = expect.createSpy();
 
     ee.on('success', spySuccess);
-    ee.on('already', spyAlready);
+    ee.on('exists', spyAlready);
 
     var moduleNames = [
       './fixtures/fred.js',

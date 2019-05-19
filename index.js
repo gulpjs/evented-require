@@ -26,12 +26,12 @@ EventedRequire.prototype.require = function(moduleName) {
     opts.basedir = this._basedir;
   }
 
-  var result, already, modulePath;
+  var result, exists, modulePath;
   this.emit('before', moduleName);
   try {
     modulePath = resolve.sync(moduleName, opts);
     if (require.cache[modulePath]) {
-      already = true;
+      exists = true;
     }
     result = require(modulePath);
   } catch (e) {
@@ -39,8 +39,8 @@ EventedRequire.prototype.require = function(moduleName) {
     return null;
   }
 
-  if (already) {
-    this.emit('already', moduleName, modulePath);
+  if (exists) {
+    this.emit('exists', moduleName, modulePath);
   } else {
     this.emit('success', moduleName, result);
   }
