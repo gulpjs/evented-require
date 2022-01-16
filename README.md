@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="http://gulpjs.com">
+  <a href="https://gulpjs.com">
     <img height="257" width="114" src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png">
   </a>
 </p>
 
 # evented-require
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Azure Pipelines Build Status][azure-pipelines-image]][azure-pipelines-url] [![Travis Build Status][travis-image]][travis-url] [![AppVeyor Build Status][appveyor-image]][appveyor-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Gitter chat][gitter-image]][gitter-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][ci-image]][ci-url] [![Coveralls Status][coveralls-image]][coveralls-url]
 
 Require modules and receive events.
 
@@ -71,21 +71,15 @@ Emits the `failure` event after a module fails to load. Provides the module name
 
 MIT
 
-[downloads-image]: http://img.shields.io/npm/dm/evented-require.svg
+
+<!-- prettier-ignore-start -->
+[downloads-image]: https://img.shields.io/npm/dm/evented-require.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/evented-require
-[npm-image]: http://img.shields.io/npm/v/evented-require.svg
+[npm-image]: https://img.shields.io/npm/v/evented-require.svg?style=flat-square
 
-[azure-pipelines-url]: https://dev.azure.com/gulpjs/gulp/_build/latest?definitionId=3&branchName=master
-[azure-pipelines-image]: https://dev.azure.com/gulpjs/gulp/_apis/build/status/evented-require?branchName=master
-
-[travis-url]: https://travis-ci.org/gulpjs/evented-require
-[travis-image]: http://img.shields.io/travis/gulpjs/evented-require.svg?label=travis-ci
-
-[appveyor-url]: https://ci.appveyor.com/project/gulpjs/evented-require
-[appveyor-image]: https://img.shields.io/appveyor/ci/gulpjs/evented-require.svg?label=appveyor
+[ci-url]: https://github.com/gulpjs/evented-require/actions?query=workflow:dev
+[ci-image]: https://img.shields.io/github/workflow/status/gulpjs/evented-require/dev?style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/gulpjs/evented-require
-[coveralls-image]: http://img.shields.io/coveralls/gulpjs/evented-require/master.svg
-
-[gitter-url]: https://gitter.im/gulpjs/gulp
-[gitter-image]: https://badges.gitter.im/gulpjs/gulp.svg
+[coveralls-image]: https://img.shields.io/coveralls/gulpjs/evented-require/master.svg?style=flat-square
+<!-- prettier-ignore-end -->
